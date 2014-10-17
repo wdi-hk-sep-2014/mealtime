@@ -2,7 +2,9 @@ class WelcomeController < ApplicationController
 
   def index
     @delivery_time = ""
-    @item = FoodItem.all.sample
+    @western_item = FoodItem.where(cuisine: "Western").sample
+    @asian_item = FoodItem.where(cuisine: "Asian").sample
+    @adventurous_item = FoodItem.where(cuisine: "Adventurous").sample
   end
 
   def terms

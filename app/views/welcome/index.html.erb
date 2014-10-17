@@ -1,5 +1,17 @@
 <div>
-  <p>Hello World!</p>
-  <p>Food Name: <%= @item.name %></p>
-  <p><%= image_tag @item.photo_path %></p>
+  <h1>Meal Time</h1>
+  <h2>We have lots of delicious options.</h2>
+
+  <div class="row">
+    <% [@western_item, @asian_item, @adventurous_item].each do |item| %>
+      <div class="col-md-4">
+        <strong>
+          Try this <span class="cuisine-name"><%= item.cuisine %></span>  Item:<span class="item-name"><%= item.name %></span>
+        </strong>
+        <p>It comes from <strong><%= item.restaurant_name %></strong> at the smokin' hot price of <%= item.price %></p>
+        <p>Harry gives it a <%= item.harrys_choice ? "THUMBS UP" : "THUMBS DOWN" %></p>
+        <p><%= image_tag item.photo_path, :class => 'img-rounded' %></p>
+      </div>
+    <% end %>
+  </div>
 </div>
