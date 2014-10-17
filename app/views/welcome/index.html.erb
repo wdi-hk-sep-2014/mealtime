@@ -6,7 +6,7 @@
     <% [@western_item, @asian_item, @adventurous_item].each do |item| %>
       <div class="col-md-4">
         <strong>
-          Try this <span class="cuisine-name"><%= item.cuisine %></span>  Item: <a href="/food_item/show/<%= item.id %>"><span class="item-name"><%= item.name %></span></a>
+          Try this <span class="cuisine-name"><%= item.cuisine %></span>  Item: <span class="item-name"><%= link_to item.name, url_for(:controller => 'food_item', :action => 'show', :id => item.id) %></span>
         </strong>
         <p>It comes from <strong><%= item.restaurant_name %></strong> at the smokin' hot price of <%= item.price %></p>
         <p>Harry gives it a <%= item.harrys_choice ? "THUMBS UP" : "THUMBS DOWN" %></p>
